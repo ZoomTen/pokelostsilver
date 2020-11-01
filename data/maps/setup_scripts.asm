@@ -11,6 +11,7 @@ MapSetupScripts:
 	dw MapSetupScript_Train
 	dw MapSetupScript_Submenu
 	dw MapSetupScript_BadWarp
+	dw MapSetupScript_Onboard
 
 ; valid commands are listed in MapSetupCommands (see data/maps/setup_script_pointers.asm)
 mapsetup: MACRO
@@ -175,4 +176,29 @@ MapSetupScript_Continue:
 MapSetupScript_Submenu:
 	mapsetup LoadBlockData
 	mapsetup LoadConnectionBlockData
+	db -1 ; end
+
+
+MapSetupScript_Onboard:
+	mapsetup EnterMapSpawnPoint
+	mapsetup LoadMapAttributes
+	mapsetup HandleNewMap
+	mapsetup SpawnPlayer
+	mapsetup RefreshPlayerCoords
+	mapsetup GetMapScreenCoords
+	mapsetup LoadBlockData
+	mapsetup BufferScreen
+	mapsetup DisableLCD
+	mapsetup LoadMapGraphics
+	mapsetup LoadMapTimeOfDay
+	;mapsetup FadeOutMapMusic
+	mapsetup EnableLCD
+	mapsetup LoadMapObjects
+	mapsetup LoadMapPalettes
+	mapsetup SpawnInFacingDown
+	mapsetup RefreshMapSprites
+	mapsetup PlayMapMusic
+	mapsetup ApplyMapPalettes
+	mapsetup ActivateMapAnims
+	mapsetup LoadWildMonData
 	db -1 ; end

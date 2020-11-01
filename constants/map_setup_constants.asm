@@ -12,6 +12,7 @@
 	const MAPSETUP_TRAIN      ; f9
 	const MAPSETUP_SUBMENU    ; fa
 	const MAPSETUP_BADWARP    ; fb
+	const MAPSETUP_ONBOARD    ; fc
 
 ; callback types
 	const_def 1

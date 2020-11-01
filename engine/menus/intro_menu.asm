@@ -850,10 +850,22 @@ NUM_TITLESCREENOPTIONS EQU const_value
 
 IntroSequence:
 	callfar SplashScreen
-	jr c, StartTitleScreen
-	callfar GoldSilverIntro
+	;jr c, StartTitleScreen
+	;callfar GoldSilverIntro
 
 	; fallthrough
+	call ClearSprites
+	call ClearBGPalettes
+	farcall SpawnPlayer
+	farcall _InitializeStartDay
+	call ResetWRAM
+
+	ld a, SPAWN_HOME
+	ld [wDefaultSpawnpoint], a
+
+	ld a, MAPSETUP_ONBOARD
+	ldh [hMapEntryMethod], a
+	jp FinishContinueFunction
 
 StartTitleScreen:
 	call TitleScreen
