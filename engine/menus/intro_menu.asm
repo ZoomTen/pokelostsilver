@@ -155,6 +155,9 @@ endc
 
 	call InitializeNPCNames
 
+	ld b, 0
+	farcall LoadPartySet
+
 	farcall InitDecorations
 
 	farcall DeletePartyMonMail
