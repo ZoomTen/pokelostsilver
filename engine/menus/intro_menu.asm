@@ -22,10 +22,6 @@ ENDC
 ResetWRAM:
 	xor a
 	ldh [hBGMapMode], a
-	call _ResetWRAM
-	ret
-
-_ResetWRAM:
 	ld hl, wVirtualOAM
 	ld bc, wOptions - wVirtualOAM
 	xor a
@@ -36,16 +32,10 @@ _ResetWRAM:
 	xor a
 	call ByteFill
 
-	ldh a, [rLY]
-	ldh [hUnusedBackup], a
-	call DelayFrame
-	ldh a, [hRandomSub]
+	ld a, $49
 	ld [wPlayerID], a
 
-	ldh a, [rLY]
-	ldh [hUnusedBackup], a
-	call DelayFrame
-	ldh a, [hRandomAdd]
+	ld a, $19
 	ld [wPlayerID + 1], a
 
 	ld hl, wPartyCount
@@ -102,11 +92,47 @@ _ResetWRAM:
 	xor a
 	ld [wMonType], a
 
+	ld [wCoins], a
+	ld [wCoins + 1], a
+
+	ld a, %11111111
 	ld [wJohtoBadges], a
 	ld [wKantoBadges], a
 
-	ld [wCoins], a
-	ld [wCoins + 1], a
+	;ld a, "…"
+	;ld [wPlayerName], a	; this will NOT diplay properly on the card
+	;ld a, $50
+	;ld [wPlayerName+1], a
+
+	ld a, "."
+	ld [wPlayerName], a
+	ld [wPlayerName+1], a
+	ld [wPlayerName+2], a
+	ld a, $50
+	ld [wPlayerName+3], a
+
+	ld a, HIGH(999)
+	ld [wGameTimeHours], a
+	ld a, LOW(999)
+	ld [wGameTimeHours+1], a
+	ld a, 59
+	ld [wGameTimeMinutes], a
+	ld a, 59
+	ld [wGameTimeSeconds], a
+
+	ld hl, wPokedexCaught
+	ld a, $FF
+	ld c, wEndPokedexCaught - wPokedexCaught - 1
+.set_all_dex
+	ld [hli], a
+	dec c
+	jr nz, .set_all_dex
+	ld a, %00000111
+	ld [hl], a
+
+	;ld a, [wStatusFlags]
+	;set STATUSFLAGS_POKEDEX_F, a
+	;ld [wStatusFlags], a
 
 if START_MONEY >= $10000
 	ld a, HIGH(START_MONEY >> 8)
@@ -132,8 +158,6 @@ endc
 	farcall InitDecorations
 
 	farcall DeletePartyMonMail
-
-	call ResetGameTime
 	ret
 
 .InitList:

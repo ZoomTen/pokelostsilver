@@ -295,12 +295,12 @@ TrainerCard_Page1_PrintDexCaught_GameTime:
 	hlcoord 2, 8
 	ld de, .StatusTilemap
 	call TrainerCardSetup_PlaceTilemapString
-	ld a, [wStatusFlags]
-	bit STATUSFLAGS_POKEDEX_F, a
-	ret nz
-	hlcoord 1, 9
-	lb bc, 2, 17
-	call ClearBox
+	;ld a, [wStatusFlags]
+	;bit STATUSFLAGS_POKEDEX_F, a
+	;ret nz
+	;hlcoord 1, 9
+	;lb bc, 2, 17
+	;call ClearBox
 	ret
 
 .Dex_PlayTime:
