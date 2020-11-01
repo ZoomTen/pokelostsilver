@@ -158,6 +158,9 @@ endc
 	ld b, 0
 	farcall LoadPartySet
 
+	ld a, %10000001
+	ld [wPokegearFlags], a
+
 	farcall InitDecorations
 
 	farcall DeletePartyMonMail
