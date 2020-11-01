@@ -1273,8 +1273,9 @@ _LinkAskTradeForText::
 	done
 
 _WouldYouLikeToSaveTheGameText::
-	text "Would you like to"
-	line "save the game?"
+	text "The game cannot"
+	line "be saved now."
+	prompt
 	done
 
 _SavingDontTurnOffThePowerText::

@@ -1,4 +1,4 @@
-roms := pokegold.gbc pokesilver.gbc pokegold_debug.gbc pokesilver_debug.gbc
+roms := pokesilver.gbc
 
 rom_obj := \
 audio.o \

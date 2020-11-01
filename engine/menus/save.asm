@@ -7,12 +7,12 @@ SaveMenu:
 	farcall SaveMenu_CopyTilemapAtOnce
 	ld hl, WouldYouLikeToSaveTheGameText
 	call SaveTheGame_yesorno
-	jr nz, .refused
-	call AskOverwriteSaveFile
-	jr c, .refused
-	call PauseGameLogic
-	call SavingDontTurnOffThePower
-	call ResumeGameLogic
+	;jr nz, .refused
+	;call AskOverwriteSaveFile
+	;jr c, .refused
+	;call PauseGameLogic
+	;call SavingDontTurnOffThePower
+	;call ResumeGameLogic
 	call ExitMenu
 	and a
 	ret
@@ -198,10 +198,10 @@ SaveTheGame_yesorno:
 	ld b, BANK(WouldYouLikeToSaveTheGameText)
 	call MapTextbox
 	call LoadMenuTextbox
-	lb bc, 0, 7
-	call PlaceYesNoBox
-	ld a, [wMenuCursorY]
-	dec a
+	;lb bc, 0, 7
+	;call PlaceYesNoBox
+	;ld a, [wMenuCursorY]
+	;dec a
 	call CloseWindow
 	push af
 	call ReloadPalettes
