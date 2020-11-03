@@ -6,6 +6,44 @@ LeaveHall_MapScripts:
 
 	def_callbacks
 
+TurnBackNowSign:
+	opentext
+	writetext .TurnBackNowText
+	yesorno
+	iftrue .regular_script
+	yesorno
+	iftrue .regular_script
+	yesorno
+	iftrue .regular_script
+	yesorno
+	iftrue .regular_script
+	yesorno
+	iftrue .regular_script
+	yesorno
+	iftrue .regular_script
+	closetext
+	opentext
+	writetext .XXXPLACEHOLDER_TEXT2
+	waitbutton
+	closetext
+	end
+.regular_script
+	closetext
+	opentext
+	writetext .XXXPLACEHOLDER_TEXT1
+	waitbutton
+	closetext
+	end
+.TurnBackNowText:
+	text "TURN BACK NOW"
+	done
+.XXXPLACEHOLDER_TEXT1:
+	text "Regular script"
+	done
+.XXXPLACEHOLDER_TEXT2:
+	text "Hidden! script"
+	done
+
 LeaveHall_MapEvents:
 	db 0, 0 ; filler
 
@@ -15,6 +53,7 @@ LeaveHall_MapEvents:
 	def_coord_events
 
 	def_bg_events
+	bg_event 11, 96, BGEVENT_READ, TurnBackNowSign
 
 	def_object_events
-	;object_event 24, 16, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodCityRocketScoutScript, EVENT_GOLDENROD_CITY_ROCKET_SCOUT
+
