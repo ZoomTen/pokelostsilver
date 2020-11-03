@@ -391,6 +391,7 @@ INCLUDE "maps/Pokecenter2F.asm"
 INCLUDE "maps/TradeCenter.asm"
 INCLUDE "maps/Colosseum.asm"
 INCLUDE "maps/TimeCapsule.asm"
+INCLUDE "maps/LeaveHall.asm"
 
 
 SECTION "Map Scripts 27", ROMX

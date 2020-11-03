@@ -998,3 +998,5 @@ TohjoFalls_Blocks:
 SECTION "Map Blocks 4", ROMX
 SproutStart_Blocks:
 	INCBIN "maps/SproutStart.blk"
+LeaveHall_Blocks:
+	INCBIN "maps/LeaveHall.blk"

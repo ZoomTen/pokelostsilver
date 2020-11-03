@@ -676,3 +676,4 @@ ENDM
 	map_attributes Route31VioletGate, ROUTE_31_VIOLET_GATE, $00, 0
 
 	map_attributes SproutStart, SPROUT_START, $09, 0
+	map_attributes LeaveHall, LEAVE_HALL, $00, 0
