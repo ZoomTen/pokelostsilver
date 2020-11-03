@@ -249,6 +249,7 @@ ROMX $70
 	"bank70"
 	"Tileset Data 6"
 	"bank70_2"
+	"Party Data"
 ROMX $7f
 	org $7df8
 	"Stadium 2 Checksums"
