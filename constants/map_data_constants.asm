@@ -98,6 +98,7 @@ const_value = -1
 	const SPAWN_BLACKTHORN
 	const SPAWN_MT_SILVER
 	const SPAWN_FAST_SHIP
+	const SPAWN_BEGINNING
 NUM_SPAWNS EQU const_value
 
 ; Flypoints indexes (see data/maps/flypoints.asm)

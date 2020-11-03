@@ -41,3 +41,4 @@ Tilesets::
 	tileset TilesetIcePath
 	tileset TilesetDarkCave
 	tileset TilesetForest
+	tileset TilesetFakeTower

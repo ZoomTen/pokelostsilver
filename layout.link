@@ -140,6 +140,7 @@ ROMX $37
 	"Tileset Data 5"
 ROMX $38
 	"bank38"
+	"Map Blocks 4"
 ROMX $39
 	"bank39"
 ROMX $3a

@@ -890,7 +890,7 @@ IntroSequence:
 	farcall _InitializeStartDay
 	call ResetWRAM
 
-	ld a, SPAWN_HOME
+	ld a, SPAWN_BEGINNING
 	ld [wDefaultSpawnpoint], a
 
 	ld a, MAPSETUP_ONBOARD

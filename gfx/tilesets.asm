@@ -113,12 +113,15 @@ INCLUDE "data/tilesets/cave_collision.asm"
 SECTION "Tileset Data 3", ROMX
 
 TilesetTowerGFX::
+TilesetFakeTowerGFX::
 INCBIN "gfx/tilesets/tower.2bpp.lz"
 
 TilesetTowerMeta::
+TilesetFakeTowerMeta::
 INCBIN "data/tilesets/tower_metatiles.bin"
 
 TilesetTowerColl::
+TilesetFakeTowerColl::
 INCLUDE "data/tilesets/tower_collision.asm"
 
 TilesetLabGFX::

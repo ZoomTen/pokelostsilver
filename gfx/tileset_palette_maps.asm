@@ -55,6 +55,7 @@ TilesetTraditionalHousePalMap:
 INCLUDE "gfx/tilesets/traditional_house_palette_map.asm"
 
 TilesetTowerPalMap:
+TilesetFakeTowerPalMap:
 INCLUDE "gfx/tilesets/tower_palette_map.asm"
 
 TilesetCavePalMap:

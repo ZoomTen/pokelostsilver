@@ -473,4 +473,8 @@ ENDM
 	map_const MR_POKEMONS_HOUSE,                            4,  4 ; 10
 	map_const ROUTE_31_VIOLET_GATE,                         5,  4 ; 11
 
-NUM_MAP_GROUPS EQU const_value ; 26
+; pasta shit
+	newgroup						; 27
+	map_const SPROUT_START,                                10, 8 ;  1
+
+NUM_MAP_GROUPS EQU const_value ; 27
