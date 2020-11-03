@@ -208,3 +208,7 @@ ForceMapMusic:
 .notbiking
 	call TryRestartMapMusic
 	ret
+
+DelayOneSecond:
+	ld a, 60
+	jp DelayFrames

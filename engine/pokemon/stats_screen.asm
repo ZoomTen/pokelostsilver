@@ -738,8 +738,8 @@ StatsScreen_PlaceFrontpic:
 	call _PrepMonFrontpic
 
 .play_cry
-	ld a, [wCurPartySpecies]
-	call PlayMonCry
+	;ld a, [wCurPartySpecies]
+	;call PlayMonCry
 	pop bc
 	ld b, 1
 	ret

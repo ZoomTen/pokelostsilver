@@ -193,6 +193,9 @@ MapSetupScript_Onboard:
 	mapsetup LoadMapTimeOfDay
 	;mapsetup FadeOutMapMusic
 	mapsetup EnableLCD
+	mapsetup DelayOneSecond
+	mapsetup DelayOneSecond
+	mapsetup DelayOneSecond
 	mapsetup LoadMapObjects
 	mapsetup LoadMapPalettes
 	mapsetup SpawnInFacingDown

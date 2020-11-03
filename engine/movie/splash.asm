@@ -84,10 +84,10 @@ GameFreakPresentsFrame:
 ; Play one frame of GameFreakPresents sequence.
 ; Return carry when the sequence completes or is canceled.
 
-	call JoyTextDelay
-	ldh a, [hJoyLast]
-	and BUTTONS
-	jr nz, .pressed_button
+	;call JoyTextDelay
+	;ldh a, [hJoyLast]
+	;and BUTTONS
+	;jr nz, .pressed_button
 
 ; high bits of wJumptableIndex are recycled for some flags
 ; this is set when the sequence finished
@@ -128,6 +128,7 @@ GameFreakPresentsScene:
 	dw GameFreakPresents_PlaceLogo
 	dw GameFreakPresents_LogoSparkles
 	dw GameFreakPresents_PlacePresents
+	dw GameFreakPresents_WaitForTimer
 	dw GameFreakPresents_WaitForTimer
 	dw GameFreakPresents_SetDoneFlag
 
@@ -189,8 +190,8 @@ GameFreakPresents_LogoSparkles:
 	dec [hl]
 
 ; add first text when timer passes half
-	cp 63
-	call z, GameFreakPresents_PlaceGameFreak
+	;cp 63
+	;call z, GameFreakPresents_PlaceGameFreak
 
 ; add sparkles continuously
 	call GameFreakPresents_Sparkle
@@ -213,14 +214,14 @@ GameFreakPresents_PlaceGameFreak:
 	db "@"
 
 GameFreakPresents_PlacePresents:
-	hlcoord 7, 13
-	ld de, .presents
-	call PlaceString
+	;hlcoord 7, 13
+	;ld de, .presents
+	;call PlaceString
 
 	call GameFreakPresents_NextScene
 
 ; set timer for GameFreakPresents_WaitForTimer
-	ld a, 128
+	ld a, 255
 	ld [wIntroSceneTimer], a
 	ret
 
@@ -244,6 +245,8 @@ GameFreakPresents_WaitForTimer:
 	ret
 .done
 	call GameFreakPresents_NextScene
+	ld a, 128
+	ld [wIntroSceneTimer], a
 	ret
 
 GameFreakPresents_UpdateLogoPal:
