@@ -28,7 +28,8 @@
 	const TILESET_ICE_PATH             ; 1a
 	const TILESET_DARK_CAVE            ; 1b
 	const TILESET_FOREST               ; 1c
-	const TILESET_FAKE_TOWER               ; 1c
+	const TILESET_FAKE_TOWER           ; 1d
+	const TILESET_CREEPY_ROOMS         ; 1e
 
 ; bg palette values (see gfx/tilesets/*_palette_map.asm)
 ; TilesetBGPalette indexes (see gfx/tilesets/bg_tiles.pal)

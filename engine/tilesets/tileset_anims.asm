@@ -92,6 +92,7 @@ UnusedTilesetAnim2: ; unreferenced
 	dw wTileAnimBuffer, ScrollTileRightLeft
 	dw vTiles2 tile $14, WriteTileFromBuffer
 TilesetFakeTowerAnim:
+TilesetCreepyRoomsAnim:
 	dw NULL,  WaitTileAnimation
 	dw NULL,  WaitTileAnimation
 	dw NULL,  WaitTileAnimation

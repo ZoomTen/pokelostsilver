@@ -42,3 +42,4 @@ Tilesets::
 	tileset TilesetDarkCave
 	tileset TilesetForest
 	tileset TilesetFakeTower
+	tileset TilesetCreepyRooms

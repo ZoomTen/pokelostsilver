@@ -277,8 +277,16 @@ INCLUDE "data/tilesets/players_room_collision.asm"
 TilesetForestColl::
 INCLUDE "data/tilesets/forest_collision.asm"
 
-
 SECTION "Tileset Data 6", ROMX
 
 TilesetKantoGFX::
 INCBIN "gfx/tilesets/kanto.2bpp.lz"
+
+
+TilesetCreepyRoomsGFX::
+INCBIN "gfx/tilesets/creepy_rooms.2bpp.lz"
+TilesetCreepyRoomsMeta::
+INCBIN "data/tilesets/creepy_rooms_metatiles.bin"
+TilesetCreepyRoomsColl::
+INCLUDE "data/tilesets/creepy_rooms_collision.asm"
+

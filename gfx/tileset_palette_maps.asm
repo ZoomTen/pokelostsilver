@@ -58,6 +58,9 @@ TilesetTowerPalMap:
 TilesetFakeTowerPalMap:
 INCLUDE "gfx/tilesets/tower_palette_map.asm"
 
+TilesetCreepyRoomsPalMap:
+INCLUDE "gfx/tilesets/creepy_rooms_palette_map.asm"
+
 TilesetCavePalMap:
 TilesetDarkCavePalMap:
 INCLUDE "gfx/tilesets/cave_palette_map.asm"
@@ -85,9 +88,6 @@ INCLUDE "gfx/tilesets/lighthouse_palette_map.asm"
 
 TilesetPlayersRoomPalMap:
 INCLUDE "gfx/tilesets/players_room_palette_map.asm"
-
-UnusedMuseumPalMap:
-INCLUDE "gfx/tilesets/unused_museum_palette_map.asm"
 
 TilesetIcePathPalMap:
 INCLUDE "gfx/tilesets/ice_path_palette_map.asm"
