@@ -23,6 +23,8 @@ PHONE_DISPLAY_HEIGHT EQU 4
 	const POKEGEARSTATE_FINISHPHONECALL ; a
 	const POKEGEARSTATE_RADIOINIT       ; b
 	const POKEGEARSTATE_RADIOJOYPAD     ; c
+	const POKEGEARSTATE_UNKNOWNMAPINIT  ; d
+	const POKEGEARSTATE_UNKNOWNMAPJOYPAD  ; e
 
 PokeGear:
 	ld hl, wOptions
@@ -441,6 +443,8 @@ PokegearJumptable:
 	dw PokegearPhone_FinishPhoneCall
 	dw PokegearRadio_Init
 	dw PokegearRadio_Joypad
+	dw PokegearMap_Init
+	dw PokegearMap_UnknownMap
 
 PokegearClock_Init:
 	call InitPokegearTilemap
@@ -521,6 +525,9 @@ Pokegear_UpdateClock:
 	text_end
 
 PokegearMap_CheckRegion:
+	ld a, POKEGEARSTATE_UNKNOWNMAPINIT
+	jr .done
+
 	ld a, [wPokegearMapPlayerIconLandmark]
 	cp LANDMARK_FAST_SHIP
 	jr z, .johto
@@ -554,6 +561,11 @@ PokegearMap_Init:
 
 PokegearMap_KantoMap:
 	call TownMap_GetKantoLandmarkLimits
+	jr PokegearMap_ContinueMap
+
+PokegearMap_UnknownMap:
+	ld d, LANDMARK_UNKNOWN
+	ld e, d
 	jr PokegearMap_ContinueMap
 
 PokegearMap_JohtoMap:
@@ -1960,6 +1972,44 @@ PlayRadio:
 	jp LoadStation_PlacesAndPeople
 
 PokegearMap:
+; create the borders manually
+	ld a, $16
+	ld c, 14
+	hlcoord 0, 3
+.left_and_right
+	ld [hl], a
+	ld de, 19
+	add hl, de
+	ld [hli], a
+	ld [hl], a
+	dec c
+	jr nz, .left_and_right
+;bottom half
+	ld a, $26
+	ld [hli], a
+	ld a, $07
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld a, $27
+	ld [hl], a
+	ret
+;;;
 	ld a, e
 	and a
 	jr nz, .kanto

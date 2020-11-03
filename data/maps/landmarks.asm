@@ -101,6 +101,7 @@ Landmarks:
 	landmark  12, 100, TohjoFallsName
 	landmark  20,  68, Route28Name
 	landmark 140, 116, FastShipName
+	landmark $55-8, $5d-8, UnknownMapName
 
 NewBarkTownName:     db "NEW BARK¯TOWN@"
 CherrygroveCityName: db "CHERRYGROVE¯CITY@"
@@ -203,3 +204,4 @@ DiglettsCaveName:    db "DIGLETT's¯CAVE@"
 TohjoFallsName:      db "TOHJO FALLS@"
 UndergroundName:     db "UNDERGROUND@"
 SpecialMapName:      db "SPECIAL@"
+UnknownMapName:      db "???@"
