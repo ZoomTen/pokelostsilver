@@ -303,11 +303,11 @@ UseFlash:
 	jp QueueScript
 
 Script_UseFlash:
-	reloadmappart
+	;reloadmappart
 	special UpdateTimePals
-	writetext UseFlashTextScript
+	;writetext UseFlashTextScript
 	callasm BlindingFlash
-	closetext
+	closetext	; this has to be called to clear out the font tiles
 	end
 
 UseFlashTextScript:

@@ -1181,6 +1181,19 @@ LoadMapPals:
 	ld bc, 8 palettes
 	call CopyBytes
 
+	ld a, [wTimeOfDayPal]
+	cp DARKNESS_F
+	jr nz, .no_blackout
+
+	xor a
+	ld hl, wOBPals2
+	ld bc, 1 palettes
+	call ByteFill
+	ld hl, wOBPals1
+	ld bc, 1 palettes
+	call ByteFill
+
+.no_blackout
 	ld a, [wEnvironment]
 	cp TOWN
 	jr z, .outside
