@@ -65,6 +65,8 @@ LoadPartySet::
 
 Party_data:
 	dw LS_Initial_Party
+	dw LS_Graveyard_1
+
 PARTY_UNOWN_A EQUS "dx 2, 0"
 PARTY_UNOWN_B EQUS "dx 2, 68"
 PARTY_UNOWN_C EQUS "dx 2, 544"
@@ -93,3 +95,4 @@ PARTY_UNOWN_Y EQUS "dx 2, 26112"
 PARTY_UNOWN_Z EQUS "dx 2, 26180"
 
 INCLUDE "data/party_data/initial.asm"
+INCLUDE "data/party_data/graveyard1.asm"
