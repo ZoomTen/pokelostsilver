@@ -25,13 +25,14 @@ LS_Initial_Party:
 	db "…@@@@@@@@@@"
 	db "…@@@@@@@@@@"
 ; mon data
+; "LEAVE", "HURRY"
 	db UNOWN	; species
 	db 0		; item
 	db HIDDEN_POWER, 0, 0, 0	; moves
 	dx 2, 18713				; ID
 	dt 135				; exp
 	dw 0, 0, 0, 0, 0		; special exp idk
-	dx 2, 9316			; 'L'
+	PARTY_UNOWN_L
 	db 15, 0, 0, 0	; PP
 	db 0		; happiness
 	db 0		; pokerus
@@ -54,7 +55,7 @@ LS_Initial_Party:
 	dx 2, 18713				; ID
 	dt 135				; exp
 	dw 0, 0, 0, 0, 0		; special exp idk
-	dx 2, 1088			; 'E'
+	PARTY_UNOWN_E
 	db 15, 0, 0, 0	; PP
 	db 0		; happiness
 	db 0		; pokerus
@@ -77,7 +78,7 @@ LS_Initial_Party:
 	dx 2, 18713				; ID
 	dt 135				; exp
 	dw 0, 0, 0, 0, 0		; special exp idk
-	dx 2, 0		; 'A'
+	PARTY_UNOWN_A
 	db 15, 0, 0, 0	; PP
 	db 0		; happiness
 	db 0		; pokerus
@@ -100,7 +101,7 @@ LS_Initial_Party:
 	dx 2, 18713				; ID
 	dt 135				; exp
 	dw 0, 0, 0, 0, 0		; special exp idk
-	dx 2, 25092			; 'V'
+	PARTY_UNOWN_V
 	db 15, 0, 0, 0	; PP
 	db 0		; happiness
 	db 0		; pokerus
@@ -123,7 +124,7 @@ LS_Initial_Party:
 	dx 2, 18713				; ID
 	dt 135				; exp
 	dw 0, 0, 0, 0, 0		; special exp idk
-	dx 2, 1088			; 'E'
+	PARTY_UNOWN_E
 	db 15, 0, 0, 0	; PP
 	db 0		; happiness
 	db 0		; pokerus
