@@ -32,39 +32,33 @@ ResetWRAM:
 	xor a
 	call ByteFill
 
+; player ID = 18713
 	ld a, $49
 	ld [wPlayerID], a
 
 	ld a, $19
 	ld [wPlayerID + 1], a
 
+; base RAM init
 	ld hl, wPartyCount
 	call .InitList
-
 	xor a
 	ld [wCurBox], a
 	ld [wSavedAtLeastOnce], a
-
 	call SetDefaultBoxNames
-
 	ld a, BANK(sBoxCount)
 	call OpenSRAM
 	ld hl, sBoxCount
 	call .InitList
 	call CloseSRAM
-
 	ld hl, wNumItems
 	call .InitList
-
 	ld hl, wNumKeyItems
 	call .InitList
-
 	ld hl, wNumBalls
 	call .InitList
-
 	ld hl, wNumPCItems
 	call .InitList
-
 	xor a
 	ld [wRoamMon1Species], a
 	ld [wRoamMon2Species], a
@@ -76,7 +70,6 @@ ResetWRAM:
 	ld [wRoamMon1MapNumber], a
 	ld [wRoamMon2MapNumber], a
 	ld [wRoamMon3MapNumber], a
-
 	ld a, BANK(sMysteryGiftItem)
 	call OpenSRAM
 	ld hl, sMysteryGiftItem
@@ -85,16 +78,14 @@ ResetWRAM:
 	dec a
 	ld [hl], a
 	call CloseSRAM
-
 	call LoadOrRegenerateLuckyIDNumber
 	call InitializeMagikarpHouse
-
 	xor a
 	ld [wMonType], a
-
 	ld [wCoins], a
 	ld [wCoins + 1], a
 
+; Give all badges
 	ld a, %11111111
 	ld [wJohtoBadges], a
 	ld [wKantoBadges], a
@@ -104,6 +95,7 @@ ResetWRAM:
 	;ld a, $50
 	;ld [wPlayerName+1], a
 
+; Name the player "..."
 	ld a, "."
 	ld [wPlayerName], a
 	ld [wPlayerName+1], a
@@ -111,6 +103,7 @@ ResetWRAM:
 	ld a, $50
 	ld [wPlayerName+3], a
 
+; Max out the game time
 	ld a, HIGH(999)
 	ld [wGameTimeHours], a
 	ld a, LOW(999)
@@ -120,6 +113,7 @@ ResetWRAM:
 	ld a, 59
 	ld [wGameTimeSeconds], a
 
+; Max out the pokedex
 	ld hl, wPokedexCaught
 	ld a, $FF
 	ld c, wEndPokedexCaught - wPokedexCaught - 1
@@ -134,6 +128,7 @@ ResetWRAM:
 	;set STATUSFLAGS_POKEDEX_F, a
 	;ld [wStatusFlags], a
 
+; Set starting money
 if START_MONEY >= $10000
 	ld a, HIGH(START_MONEY >> 8)
 endc
@@ -143,26 +138,27 @@ endc
 	ld a, LOW(START_MONEY)
 	ld [wMoney + 2], a
 
+; More base init
 	xor a
 	ld [wWhichMomItem], a
-
 	ld hl, wMomItemTriggerBalance
 	ld [hl], HIGH(MOM_MONEY >> 8)
 	inc hl
 	ld [hl], HIGH(MOM_MONEY) ; mid
 	inc hl
 	ld [hl], LOW(MOM_MONEY)
-
 	call InitializeNPCNames
 
+; Load the starting party
 	ld b, 0
 	farcall LoadPartySet
 
+; Enable the pokegear and the map card
 	ld a, %10000001
 	ld [wPokegearFlags], a
 
+; More game base init
 	farcall InitDecorations
-
 	farcall DeletePartyMonMail
 	ret
 
@@ -879,20 +875,23 @@ Intro_PlaceChrisSprite:
 NUM_TITLESCREENOPTIONS EQU const_value
 
 IntroSequence:
+; Game Freak intro
 	callfar SplashScreen
-	;jr c, StartTitleScreen
-	;callfar GoldSilverIntro
 
-	; fallthrough
+; Cleanup
 	call ClearSprites
 	call ClearBGPalettes
+
+; Go straight into the game
 	farcall SpawnPlayer
 	farcall _InitializeStartDay
 	call ResetWRAM
 
+; Set spawn loacation
 	ld a, SPAWN_BEGINNING
 	ld [wDefaultSpawnpoint], a
 
+; Enter the map
 	ld a, MAPSETUP_ONBOARD
 	ldh [hMapEntryMethod], a
 	jp FinishContinueFunction
