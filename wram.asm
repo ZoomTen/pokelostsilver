@@ -2702,11 +2702,11 @@ ENDU
 
 wPokemonDataEnd::
 wGameDataEnd::
-
+wDarknessLevel:: db
 
 SECTION "Stack", WRAMX
 
-	ds 2
+	ds 1
 wStackBottom::
 	ds $fc
 wStack::
