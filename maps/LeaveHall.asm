@@ -214,6 +214,7 @@ TurnBackNowSign:
 	end
 .regular_script
 	closetext
+	applymovement PLAYER, .DigOut
 	warpfacing DOWN, AZALEA_TOWN, 10, 10
 	callasm LeaveHall_ImmediatelyBlackoutPalette
 	callasm .ReplaceParty
@@ -222,6 +223,11 @@ TurnBackNowSign:
 	waitbutton
 	closetext
 	end
+.DigOut:
+	step_dig 24
+	dig_down 16
+	hide_object
+	step_end
 .ReplaceParty:
 	ld b, 1
 	farcall LoadPartySet

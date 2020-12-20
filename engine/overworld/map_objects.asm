@@ -1706,6 +1706,25 @@ StepFunction_TrackingObject:
 	jp DeleteMapObject
 
 StepFunction_14:
+; escape rope but falling down
+	ld hl, OBJECT_SPRITE_Y_OFFSET
+	add hl, bc
+	inc [hl]
+	inc [hl]
+	inc [hl]
+	inc [hl]
+	inc [hl]
+	inc [hl]
+	ld hl, OBJECT_STEP_DURATION
+	add hl, bc
+	dec [hl]
+	ret nz
+; end movement
+	ld hl, OBJECT_STEP_TYPE
+	add hl, bc
+	ld [hl], STEP_TYPE_FROM_MOVEMENT
+	ret
+
 StepFunction_ScreenShake:
 	call Field1c_AnonJumptable
 .anon_dw

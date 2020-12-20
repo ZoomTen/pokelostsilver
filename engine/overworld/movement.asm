@@ -89,6 +89,7 @@ MovementPointers:
 	dw Movement_tree_shake            ; 56
 	dw Movement_rock_smash            ; 57
 	dw Movement_return_dig            ; 58
+	dw Movement_dig_down              ; 59
 
 Movement_teleport_from:
 	ld hl, OBJECT_STEP_TYPE
@@ -128,6 +129,13 @@ Movement_step_dig:
 	ld hl, OBJECT_DIRECTION_WALKING
 	add hl, bc
 	ld [hl], STANDING
+	ret
+
+Movement_dig_down:
+	call Movement_step_dig
+	ld hl, OBJECT_STEP_TYPE
+	add hl, bc
+	ld [hl], STEP_TYPE_14
 	ret
 
 Movement_return_dig:

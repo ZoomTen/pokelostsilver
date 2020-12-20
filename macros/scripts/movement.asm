@@ -213,3 +213,9 @@ return_dig: MACRO
 	db movement_return_dig
 	db \1 ; length
 ENDM
+
+	const movement_dig_down ; $58
+dig_down: MACRO
+	db movement_dig_down
+	db \1 ; length
+ENDM
