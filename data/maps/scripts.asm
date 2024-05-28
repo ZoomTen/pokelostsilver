@@ -373,6 +373,7 @@ INCLUDE "maps/MountMoonSquare.asm"
 INCLUDE "maps/MountMoonGiftShop.asm"
 INCLUDE "maps/TinTowerRoof.asm"
 INCLUDE "maps/SproutStart.asm"
+INCLUDE "maps/Graveyard.asm"
 
 
 SECTION "Map Scripts 26", ROMX

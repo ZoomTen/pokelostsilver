@@ -1000,3 +1000,5 @@ SproutStart_Blocks:
 	INCBIN "maps/SproutStart.blk"
 LeaveHall_Blocks:
 	INCBIN "maps/LeaveHall.blk"
+Graveyard_Blocks:
+	INCBIN "maps/Graveyard.blk"

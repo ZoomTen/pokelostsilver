@@ -677,3 +677,4 @@ ENDM
 
 	map_attributes SproutStart, SPROUT_START, $09, 0
 	map_attributes LeaveHall, LEAVE_HALL, $00, 0
+	map_attributes Graveyard, GRAVEYARD, $00, 0

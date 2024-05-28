@@ -477,5 +477,5 @@ ENDM
 	newgroup						; 27
 	map_const SPROUT_START,                                10, 8 ;  1
 	map_const LEAVE_HALL,                                  10, 52 ;  2
-
+	map_const GRAVEYARD,                                   10, 9   ;3
 NUM_MAP_GROUPS EQU const_value ; 27

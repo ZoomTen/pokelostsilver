@@ -40,37 +40,6 @@ LeaveHall_SetDarknessLevel4:
 	callasm LeaveHall_DarkenPalettes
 	end
 
-LeaveHall_ImmediatelyBlackoutPalette:
-; XXX unlike the function below this is meant to refresh
-; upon loading back the map from pokemon menu
-	ld a, %11111110
-	ld [rBGP], a
-	ld [rOBP0], a
-	ld [rOBP1], a
-	ld hl, wBGPals1
-	ld c, 4*7
-	call .Blackout
-	ld hl, wBGPals2
-	ld c, 4*7
-	call .Blackout
-	ld hl, wOBPals1
-	ld c, 4*7
-	call .Blackout
-	ld hl, wOBPals2
-	ld c, 4*7
-	call .Blackout
-	ld a, 1
-	ld [hCGBPalUpdate], a
-	ret
-
-.Blackout
-	ld [hl], 0
-	inc hl
-	ld [hl], 0
-	inc hl
-	dec c
-	jr nz, .Blackout
-	ret
 LeaveHall_DarkenPalettes:
 
 ; XXX This will only work if you don't open the Pokemon menu!
@@ -214,31 +183,12 @@ TurnBackNowSign:
 	end
 .regular_script
 	closetext
-	applymovement PLAYER, .DigOut
-	warpfacing DOWN, AZALEA_TOWN, 10, 10
-	callasm LeaveHall_ImmediatelyBlackoutPalette
-	callasm .ReplaceParty
-	opentext
-	writetext .HurryFaintedText
-	waitbutton
-	closetext
+	warpfacing DOWN, GRAVEYARD, 8, 10
 	end
-.DigOut:
-	step_dig 24
-	dig_down 16
-	hide_object
-	step_end
-.ReplaceParty:
-	ld b, 1
-	farcall LoadPartySet
-	ret
+
 
 .TurnBackNowText:
 	text "TURN BACK NOW"
-	done
-.HurryFaintedText:
-	text "HURRY has"
-	line "fainted!"
 	done
 .XXXPLACEHOLDER_TEXT2:
 	text "Hidden! script"
