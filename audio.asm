@@ -127,6 +127,16 @@ SECTION "Extra Songs 2", ROMX
 INCLUDE "audio/music/postcredits.asm"
 
 
+SECTION "New Songs", ROMX
+
+INCLUDE "audio/music/feraligatr_2.asm"
+INCLUDE "audio/music/Goldenrod_Grey.asm"
+INCLUDE "audio/music/Goldenrod_Pink.asm"
+INCLUDE "audio/music/lostsilver_union.asm"
+INCLUDE "audio/music/lostsilver_ruins.asm"
+INCLUDE "audio/music/tintower_ashes.asm"
+INCLUDE "audio/music/hooh.asm"
+
 SECTION "Sound Effects", ROMX
 
 INCLUDE "audio/sfx.asm"

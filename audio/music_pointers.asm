@@ -95,3 +95,12 @@ Music:
 	dba Music_LakeOfRageRocketRadio
 	dba Music_Printer
 	dba Music_PostCredits
+
+; Lost Silver songs
+	dba Music_Feraligatr
+	dba Music_GoldenrodGrey
+	dba Music_GoldenrodPink
+	dba Music_UnionCaveLS
+	dba Music_RuinsOfAlph_LS
+	dba Music_TinTowerLS
+	dba Music_HoOh
