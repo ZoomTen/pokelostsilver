@@ -106,6 +106,8 @@
 	const MUSIC_HOOH              ;63
 	const MUSIC_UNOWN_REVERSE	  ;64
 	const MUSIC_POKEFLUTE_REVERSE ;65
+	const MUSIC_LIGHTHOUSE_SLOW   ;66
+	const MUSIC_LIGHTHOUSE_SLOWER ;67
 	
 ; GetMapMusic picks music for this value (see home/map.asm)
 MUSIC_MAHOGANY_MART EQU $64

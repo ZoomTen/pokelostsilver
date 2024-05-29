@@ -9,7 +9,7 @@ Music_UnionCaveLS_Ch1:
 	tempo 170
 	volume 7, 7
 	duty_cycle 1
-	pitch_offset 2
+	pitch_offset 5
 	vibrato 24, 3, 4
 	stereo_panning FALSE, TRUE
 .mainloop:
@@ -80,6 +80,7 @@ Music_UnionCaveLS_Ch1:
 
 Music_UnionCaveLS_Ch2:
 	duty_cycle 3
+	pitch_offset 3
 	vibrato 8, 2, 4
 .mainloop:
 	note_type 12, 12, 4
@@ -180,6 +181,7 @@ Music_UnionCaveLS_Ch2:
 
 Music_UnionCaveLS_Ch3:
 	note_type 12, 1, 6
+	pitch_offset 3
 	stereo_panning TRUE, FALSE
 .mainloop:
 .loop1:

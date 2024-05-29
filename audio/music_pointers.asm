@@ -106,3 +106,5 @@ Music:
 	dba Music_HoOh
 	dba Music_UnownReverse
 	dba Music_PokeFluteReverse
+	dba Music_Lighthouse_LS1
+	dba Music_Lighthouse_LS2
