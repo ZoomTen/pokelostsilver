@@ -54,13 +54,16 @@ Graveyard_HurryDied:
 	waitbutton
 	closetext
 	setscene SCENE_GRAVEYARD_NOTHING
+	callasm .WaitToWarp
+	applymovement PLAYER, .DigOut
+	warpfacing DOWN, AZALEA_TOWN, 10, 10
 	end
-	;applymovement PLAYER, .DigOut
-	;.DigOut:
-	;step_dig 24
-	;dig_down 16
-	;hide_object
-	;step_end
+
+.DigOut:
+	step_dig 24
+	dig_down 16
+	hide_object
+	step_end
 	
 .HurryFaintedText:
 	text "HURRY has"
@@ -72,7 +75,15 @@ Graveyard_HurryDied:
 	farcall LoadPartySet
 	ret
 	
-
+.WaitToWarp:
+	ld c, 20
+	call DelayFrames
+	ld a, [rBGP]
+	cp a, %11111110
+	jr z, .WaitToWarp
+	ret
+	
+	
 Graveyard_MapEvents:
 	db 0, 0 ; filler
 
