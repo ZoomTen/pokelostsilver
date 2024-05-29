@@ -186,7 +186,6 @@ TurnBackNowSign:
 	warpfacing DOWN, GRAVEYARD, 8, 10
 	end
 
-
 .TurnBackNowText:
 	text "TURN BACK NOW"
 	done

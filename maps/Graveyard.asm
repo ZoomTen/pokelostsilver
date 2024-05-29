@@ -46,6 +46,7 @@ Graveyard_ImmediatelyBlackoutPalette:
 	ret
 
 Graveyard_HurryDied:
+	playsound SFX_ENTER_DOOR
 	callasm Graveyard_ImmediatelyBlackoutPalette
 	callasm .ReplaceParty
 	opentext
