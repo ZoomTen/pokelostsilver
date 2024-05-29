@@ -96,6 +96,15 @@
 	const MUSIC_PRINTER                      ; 5b
 	const MUSIC_POST_CREDITS                 ; 5c
 
+; Lost Silver consts
+	const MUSIC_FERALIGATR        ;5d
+	const MUSIC_GOLDENROD_GREY    ;5e
+	const MUSIC_GOLDENROD_PINK    ;5f
+	const MUSIC_UNION_CAVE_LS     ;60
+	const MUSIC_RUINS_OF_ALPH_LS  ;61
+	const MUSIC_TIN_TOWER_LS      ;62
+	const MUSIC_HOOH              ;63
+	
 ; GetMapMusic picks music for this value (see home/map.asm)
 MUSIC_MAHOGANY_MART EQU $64
 

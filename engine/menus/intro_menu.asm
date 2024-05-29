@@ -95,13 +95,9 @@ ResetWRAM:
 	;ld a, $50
 	;ld [wPlayerName+1], a
 
-; Name the player "..."
-	ld a, "."
+; Name the player "…"
+	ld a, "…"
 	ld [wPlayerName], a
-	ld [wPlayerName+1], a
-	ld [wPlayerName+2], a
-	ld a, $50
-	ld [wPlayerName+3], a
 
 ; Max out the game time
 	ld a, HIGH(999)
@@ -113,7 +109,7 @@ ResetWRAM:
 	ld a, 59
 	ld [wGameTimeSeconds], a
 
-; Max out the pokedex
+; Max out the pokedex (caught)
 	ld hl, wPokedexCaught
 	ld a, $FF
 	ld c, wEndPokedexCaught - wPokedexCaught - 1
@@ -124,10 +120,27 @@ ResetWRAM:
 	ld a, %00000111
 	ld [hl], a
 
-	;ld a, [wStatusFlags]
-	;set STATUSFLAGS_POKEDEX_F, a
-	;ld [wStatusFlags], a
 
+
+;Max out the Pokedex (seen)
+	ld hl, wPokedexSeen
+	ld a, $FF
+	ld c, wEndPokedexSeen - wPokedexSeen - 1
+.set_all_dex_seen
+	ld [hli], a
+	dec c
+	jr nz, .set_all_dex_seen
+	ld a, %00000111
+	ld [hl], a
+	
+	ld a, [wStatusFlags]
+	set STATUSFLAGS_POKEDEX_F, a
+	ld [wStatusFlags], a
+
+;Set Pokedex to old mode
+	ld a, DEXMODE_OLD
+	ld [wCurDexMode], a
+	farcall Pokedex_OrderMonsByMode
 ; Set starting money
 if START_MONEY >= $10000
 	ld a, HIGH(START_MONEY >> 8)
