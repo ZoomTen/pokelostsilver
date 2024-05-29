@@ -108,3 +108,5 @@ Music:
 	dba Music_PokeFluteReverse
 	dba Music_Lighthouse_LS1
 	dba Music_Lighthouse_LS2
+	dba Music_UnownRadioFast
+	dba Music_UnownRadioFaster
