@@ -104,6 +104,8 @@
 	const MUSIC_RUINS_OF_ALPH_LS  ;61
 	const MUSIC_TIN_TOWER_LS      ;62
 	const MUSIC_HOOH              ;63
+	const MUSIC_UNOWN_REVERSE	  ;64
+	const MUSIC_POKEFLUTE_REVERSE ;65
 	
 ; GetMapMusic picks music for this value (see home/map.asm)
 MUSIC_MAHOGANY_MART EQU $64

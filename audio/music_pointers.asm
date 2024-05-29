@@ -104,3 +104,5 @@ Music:
 	dba Music_RuinsOfAlph_LS
 	dba Music_TinTowerLS
 	dba Music_HoOh
+	dba Music_UnownReverse
+	dba Music_PokeFluteReverse

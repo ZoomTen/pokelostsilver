@@ -136,6 +136,8 @@ INCLUDE "audio/music/lostsilver_union.asm"
 INCLUDE "audio/music/lostsilver_ruins.asm"
 INCLUDE "audio/music/tintower_ashes.asm"
 INCLUDE "audio/music/hooh.asm"
+INCLUDE "audio/music/unown_reverse.asm"
+INCLUDE "audio/music/pokeflute_reverse.asm"
 
 SECTION "Sound Effects", ROMX
 
