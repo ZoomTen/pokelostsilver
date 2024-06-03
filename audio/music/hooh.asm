@@ -9,7 +9,7 @@ Music_HoOh_Ch1:
 	volume 7, 7
 	duty_cycle 3
 	pitch_offset 2
-	vibrato 18, 1, 5
+	vibrato 16, 2, 5
 .body:
 	note_type 12, 11, 2
 	octave 3
@@ -190,13 +190,14 @@ Music_HoOh_Ch1:
 
 Music_HoOh_Ch2:
 	duty_cycle 3
-	vibrato 8, 3, 6
+	vibrato 32, 3, 6
 	pitch_offset 1
 	sound_call .sub1
 	note_type 12, 12, 2
 	octave 4
 	note C_, 6
 .body:
+	pitch_offset 1
 	duty_cycle 2
 	octave 2
 	note G_, 6
@@ -425,7 +426,7 @@ Music_HoOh_Ch2:
 	sound_ret
 
 Music_HoOh_Ch3:
-	note_type 12, 1, 4
+	note_type 12, 1, 1
 .body:
 	octave 4
 	note C_, 2

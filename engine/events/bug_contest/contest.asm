@@ -39,3 +39,16 @@ BugCatchingContestTimeUpText:
 BugCatchingContestIsOverText:
 	text_far _BugCatchingContestIsOverText
 	text_end
+
+GraveyardInitTimer:
+	farcall StartBugContestTimer
+	ret
+
+GraveyardWarp:
+	applymovement PLAYER, .DigOut
+	warpfacing DOWN, AZALEA_TOWN, 10, 10
+	.DigOut:
+	step_dig 24
+	dig_down 16
+	hide_object
+	step_end

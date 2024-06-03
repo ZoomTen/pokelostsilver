@@ -13,6 +13,32 @@ Graveyard_MapScripts:
 .GraveyardNoop1:
 	end
 
+CopyTimeToHL:
+	ld a, [wCurDay]
+	ld [hli], a
+	ldh a, [hHours]
+	ld [hli], a
+	ldh a, [hMinutes]
+	ld [hli], a
+	ldh a, [hSeconds]
+	ld [hli], a
+	ret
+
+CalcTimeSince:
+	inc hl
+	inc hl
+	inc hl
+	ldh a, [hSeconds]
+	ld c, a
+	sub [hl]
+	jr nc, .skip
+	add 60
+.skip
+	ld [hl], c ; current seconds
+	dec hl
+	ld [wSecondsSince], a ; seconds since
+
+
 Graveyard_ImmediatelyBlackoutPalette:
 ; XXX unlike the function below this is meant to refresh
 ; upon loading back the map from pokemon menu
@@ -54,17 +80,9 @@ Graveyard_HurryDied:
 	waitbutton
 	closetext
 	setscene SCENE_GRAVEYARD_NOTHING
-	callasm .WaitToWarp
-	applymovement PLAYER, .DigOut
-	warpfacing DOWN, AZALEA_TOWN, 10, 10
+	special GraveyardInitTimer
 	end
 
-.DigOut:
-	step_dig 24
-	dig_down 16
-	hide_object
-	step_end
-	
 .HurryFaintedText:
 	text "HURRY has"
 	line "fainted!"
@@ -75,14 +93,28 @@ Graveyard_HurryDied:
 	farcall LoadPartySet
 	ret
 	
+.StartTimer:
+	;ld a, [rBGP]
+	;cp a, %11111110
+	;jr z, .WaitToWarp
+	ld a, 0
+	ld [wBugContestMinsRemaining], a
+	ld a, 20
+	ld [wBugContestSecsRemaining], a
+	call UpdateTime
+	ld hl, wBugContestStartTime
+	call CopyTimeToHL
+	ret
+
 .WaitToWarp:
 	ld c, 20
 	call DelayFrames
-	ld a, [rBGP]
-	cp a, %11111110
-	jr z, .WaitToWarp
+	farcall CheckBugContestTimer
+	jr c, .end_scene
+	jr .WaitToWarp
+.end_scene
+	xor a
 	ret
-	
 	
 Graveyard_MapEvents:
 	db 0, 0 ; filler

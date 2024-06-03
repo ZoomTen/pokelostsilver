@@ -106,6 +106,16 @@ StartBugContestTimer:
 	call CopyDayHourMinSecToHL
 	ret
 
+StartGraveyardTimer:
+	ld a, 1
+	ld [wBugContestMinsRemaining], a
+	ld a, 20
+	ld [wBugContestSecsRemaining], a
+	call UpdateTime
+	ld hl, wBugContestStartTime
+	call CopyDayHourMinSecToHL
+	ret
+
 CheckBugContestTimer::
 	ld hl, wBugContestStartTime
 	call CalcSecsMinsHoursDaysSince

@@ -448,6 +448,13 @@ CheckTimeEvents:
 	farcall CheckBugContestTimer
 	jr c, .end_bug_contest
 	xor a
+
+	ld hl, wStatusFlags2
+	bit STATUSFLAGS2_GRAVEYARD_TIMER_F, [hl]
+	jr z, .do_daily
+	farcall CheckBugContestTimer
+	jr c, .warp
+	xor a	
 	ret
 
 .do_daily
@@ -464,6 +471,13 @@ CheckTimeEvents:
 .end_bug_contest
 	ld a, BANK(BugCatchingContestOverScript)
 	ld hl, BugCatchingContestOverScript
+	call CallScript
+	scf
+	ret
+
+.warp
+	ld a, BANK(GraveyardWarp)
+	ld hl, GraveyardWarp
 	call CallScript
 	scf
 	ret
